@@ -41,9 +41,8 @@ app.get('/restaurents',(req,res) =>{
 })*/
 
 //query example
-app.get('/restaurents/:cityId',(req,res) =>{
+app.get('/restaurents',(req,res) =>{
     var cityId = req.query.cityId?req.query.cityId:"2";
-    console.log("cityId>>>>",cityId)
     db.collection('restaurents').find({city:cityId}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
